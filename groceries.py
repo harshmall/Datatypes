@@ -23,6 +23,81 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-print(products)
+#
+#1. Print all products (already done for you!).
 
-# TODO: write some Python code here to produce the desired output
+
+
+
+
+
+#.
+# print(products)
+
+#2. Print the first product.
+# print (products[0])
+
+#3. Print the name of the first product.
+# print (products[0]["name"])
+
+# first_product = products[0]
+# print(first_product["name"])
+
+#4. Print the number of products.
+# print(len(products))
+
+#5. Print the name of each product
+# for product in products:
+    # print (product["name"])
+
+product_count_message = "THERE ARE " + str(len(products)) + " PRODUCTS:"
+
+print("--------------")
+print(product_count_message)
+print("--------------")
+
+#for product in products:
+#    print(" + " + product["name"])
+
+def sort_by_name(product):
+   return product["name"]
+
+#6. Print in alphabetical order the name of each product.
+products = sorted(products, key=sort_by_name)
+
+#7. Print in alphabetical order the name of each product, and include its price rounded to two decimal places.
+for product in products:
+    print(" + " + product["name"] + " " + "$" + str(product["price"]))
+
+#-------------------
+#-------------------
+
+#8. Print the number of unique departments.
+
+departments =[]
+for product in products:
+    departments.append(product["department"])
+departments = list(set(departments))
+
+department_count_message = " THERE ARE " + str(len(departments)) + " DEPARTMENTS:"
+
+print("--------------")
+print(department_count_message)
+print("--------------")
+
+for department in departments:
+    count = 0
+    for product in products:
+        if (product["department"]==department):
+            count = count+1
+    if(count==1):
+        print(" + "+department+" ("+str(count)+" product)")
+    else:
+        print(" + "+department+" ("+str(count)+" products)")
+
+
+#9. Print the name of each unique department.
+#list(set(department))
+
+    #Print in alphabetical order the name of each unique department.
+    #Print in alphabetical order the name of each unique department, as well as the number of products associated with that department.
